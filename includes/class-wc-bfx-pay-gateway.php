@@ -324,11 +324,15 @@ class WC_Bfx_Pay_Gateway extends WC_Payment_Gateway
                     'UST-PLY' => 'Tether USDt - Polygon',
                     'UST-LBT' => 'Tether USDt - Liquid',
                     'UST-TON' => 'Tether USDt - Ton',
-                    'EUT-ETH' => 'Tether EURt - Ethereum',
+                    'UST-SOL' => 'Tether USDt (Solana)',
+                    'USDQ' => 'Quantoz USDQ (Ethereum)',
+                    'USDR' => 'StablR USDR (Ethereum)',
                     'AVAX' => 'Avalanche',
                     'DOGE' => 'Dogecoin',
-                    'MATICM' => 'MATIC - Mainnet',
-                    'MATIC' => 'MATIC - Ethereum'
+                    'MATIC' => 'MATIC - Ethereum',
+                    'POL' => 'POL (Ethereum)',
+                    'POLM' => 'POL (Mainnet)',
+                    'SOL' => 'Solana'
                 ],
             ],
             'duration' => [
