@@ -1,2 +1,2 @@
 build:
-	zip -r ~/bitfinex-pay.zip ./ -x ".git/*"
+	zip -r ~/crypto-payment-woocomerce.zip ./ -x ".git/*"

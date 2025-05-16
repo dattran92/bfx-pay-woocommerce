@@ -1,12 +1,16 @@
 <?php
 use Automattic\WooCommerce\Blocks\Payments\Integrations\AbstractPaymentMethodType;
 
-class WC_Block_Bfx_Pay_Gateway extends AbstractPaymentMethodType {
+require_once __DIR__ . '/class-wc-crypto-payment.php';
+
+class WC_Block_Cryto_Payment_Gateway extends AbstractPaymentMethodType {
     private $gateway;
-    protected $name = 'bfx_payment';// your payment gateway name
+    protected $name;
+
     public function initialize() {
-        $this->settings = get_option( 'woocommerce_wc_block_bfx_pay_gateway_settings', [] );
-        $this->gateway = new WC_Bfx_Pay_Gateway();
+        $this->name = WC_Crypto_Payment::$PAYMENT_METHOD;
+        $this->settings = get_option( 'woocommerce_wc_block_crypto_payment_gateway_settings', [] );
+        $this->gateway = new WC_Crypto_Payment_Gateway();
     }
 
     public function is_active() {
@@ -15,7 +19,7 @@ class WC_Block_Bfx_Pay_Gateway extends AbstractPaymentMethodType {
 
     public function get_payment_method_script_handles() {
         wp_register_script(
-            'wc_block_bfx_pay_gateway-integration',
+            'wc_block_crypto_payment_gateway-integration',
             plugin_dir_url(__FILE__) . 'checkout.js',
             [
                 'wc-blocks-registry',
@@ -28,9 +32,9 @@ class WC_Block_Bfx_Pay_Gateway extends AbstractPaymentMethodType {
             true
         );
         if( function_exists( 'wp_set_script_translations' ) ) {
-            wp_set_script_translations( 'wc_block_bfx_pay_gateway-integration');
+            wp_set_script_translations( 'wc_block_crypto_payment_gateway-integration');
         }
-        return [ 'wc_block_bfx_pay_gateway-integration' ];
+        return [ 'wc_block_crypto_payment_gateway-integration' ];
     }
 
     public function get_payment_method_data() {

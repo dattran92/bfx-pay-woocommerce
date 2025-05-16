@@ -12,6 +12,6 @@
         }
     },
     "scripts": {
-        "lint": "php-cs-fixer fix bfx-pay-woocommerce.php && php-cs-fixer fix includes"
+        "lint": "php-cs-fixer fix crypto-payment-woocommerce.php && php-cs-fixer fix includes"
     }
 }
